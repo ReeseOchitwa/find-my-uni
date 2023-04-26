@@ -20,11 +20,11 @@ export default function BasicTable() {
     }
   }
   
-    const [data, setData] = useState<Data[]>([]);
+  const [data, setData] = useState<Data[]>([]);
   
   const getData = async () => {
    try {
-    const response = await fetch ("https://api.jsonbin.io/v3/b/64409cc3c0e7653a05a80169");
+    const response = await fetch ("http://localhost:5001/uni-stats");
     const jsonData = await response.json();
   
     setData(jsonData.record);

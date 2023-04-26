@@ -53,7 +53,7 @@ function BasicTable() {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 3, , 4]);
-                    return [4 /*yield*/, fetch("https://api.jsonbin.io/v3/b/64409cc3c0e7653a05a80169")];
+                    return [4 /*yield*/, fetch("http://localhost:5001/uni-stats")];
                 case 1:
                     response = _a.sent();
                     return [4 /*yield*/, response.json()];
