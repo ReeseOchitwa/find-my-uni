@@ -42,7 +42,7 @@ const theme = createTheme ({
   },
 });
 
-export default function BasicTable() {
+export default function App() {
   return (
     <TableContainer sx={{bgcolor: 'background.paper', padding:3, maxWidth: 1000, ml: 30, mr:30, mt: 20, mb:20}} component={Paper}>
       <Table sx={{ minWidth: 650}} aria-label="simple table">
