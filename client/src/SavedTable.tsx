@@ -6,9 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import BasicButtons from './button';
+import DeleteButtons from './delete';
 
-export default function BasicTable() {
+export default function SavedTable() {
   interface Data {
     universityName: string;
     geographicalData: {
@@ -63,7 +63,7 @@ export default function BasicTable() {
               <TableCell>{data.populationData.Students}</TableCell>
               <TableCell>{data.populationData.Undergraduates} </TableCell>
               <TableCell>{data.populationData.Postgraduates}</TableCell>
-              <TableCell><BasicButtons id={index.toString()}/></TableCell>
+              <TableCell><DeleteButtons id={index.toString()}/></TableCell>
             </TableRow>
           ))}
         </TableBody>

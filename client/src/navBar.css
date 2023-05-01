@@ -1,0 +1,10 @@
+.link-wrapper{
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+}
+#save{
+    font-weight: bold;
+    color:black;
+    font-size: large;
+}
