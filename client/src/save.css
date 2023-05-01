@@ -1,0 +1,15 @@
+.save-wrapper{
+    background-color: rgb(234, 184, 202);
+    display:flex;
+    padding: 304px;
+
+
+}
+
+.save-header{
+    margin-left: 100px;
+    position:absolute;
+    margin-top: 150px;
+    font-size:30px;
+    color:white;
+}

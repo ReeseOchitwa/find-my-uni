@@ -7,7 +7,7 @@ app.use(express.json());
 
 app.get('/uni-stats', async (req, res) => {
     try {
-        const response = await fetch('https://api.jsonbin.io/v3/b/64409cc3c0e7653a05a80169');
+        const response = await fetch('https://api.jsonbin.io/v3/b/6449d2d88e4aa6225e91a599');
         let data = await response.json();
         res.send(data);
         console.log(data);
