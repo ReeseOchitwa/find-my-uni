@@ -15,22 +15,23 @@ const theme = createTheme({
 });
 
 export default function BasicButtons(props: { id: string,}) {
-    const [buttonText, setButtonText] = useState<string>('Add');
-    const [color, setColor]= useState<string>('primary')
+    let [isDisabled, setIsDisabled] = React.useState(false)
+    // const [buttonText, setButtonText] = useState<string>('Add');
+    // const [color, setColor]= useState<string>('primary')
   
-    function handleClick(): void {
-      if (buttonText === 'Add') {
-        setButtonText('Delete');
-        setColor('secondary');
-      } else {
-        setButtonText('Add');
-        setColor('primary')
-      }
-    }
+    // function handleClick(): void {
+    //   if (buttonText === 'Add') {
+    //     setButtonText('Delete');
+    //     setColor('secondary');
+    //   } else {
+    //     setButtonText('Add');
+    //     setColor('primary')
+    //   }
+    // }
 
   return (
     <ThemeProvider theme={theme}>
-      <Button onClick={handleClick} id={props.id} color={color as 'primary' | 'secondary'} variant='contained'>{buttonText}</Button>
+      <Button variant="contained" onClick={() => setIsDisabled(true)} disabled={isDisabled}>Add</Button>
     </ThemeProvider>
   );
 }

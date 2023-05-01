@@ -13,7 +13,7 @@ export default function DeleteButtons(props: { id: string,}) {
     const [buttonText, setButtonText] = useState<string>('Delete');
   
     function handleClick(): void {
-        return
+        
     }
 
   return (

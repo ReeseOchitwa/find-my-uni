@@ -25,7 +25,7 @@ export default function SavedTable() {
   
   const getData = async () => {
    try {
-    const response = await fetch ("");
+    const response = await fetch ("http://localhost:5001/uni-stats");
     const jsonData = await response.json();
   
     setData(jsonData.record);
