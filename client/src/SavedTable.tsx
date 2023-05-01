@@ -68,5 +68,5 @@ export default function SavedTable() {
           ))}
         </TableBody>
       </Table>
-    </TableContainer>);
+    </TableContainer>)
 }
