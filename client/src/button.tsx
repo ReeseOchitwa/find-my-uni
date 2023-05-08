@@ -13,10 +13,24 @@ const theme = createTheme({
     },
   },
 });
+interface Props {
+  id: string;
+  disabled: boolean;
+}
 
-export default function BasicButtons(props: { id: string,}) {
+export default function BasicButtons(props: Props) {
     let [isDisabled, setIsDisabled] = React.useState(false)
-    // const [buttonText, setButtonText] = useState<string>('Add');
+    
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Button variant="contained" onClick={() => setIsDisabled(true)} disabled={isDisabled}>Add</Button>
+    </ThemeProvider>
+  );
+}
+
+
+// const [buttonText, setButtonText] = useState<string>('Add');
     // const [color, setColor]= useState<string>('primary')
   
     // function handleClick(): void {
@@ -28,11 +42,3 @@ export default function BasicButtons(props: { id: string,}) {
     //     setColor('primary')
     //   }
     // }
-
-  return (
-    <ThemeProvider theme={theme}>
-      <Button variant="contained" onClick={() => setIsDisabled(true)} disabled={isDisabled}>Add</Button>
-    </ThemeProvider>
-  );
-}
-

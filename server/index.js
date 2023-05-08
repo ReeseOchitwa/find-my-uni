@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const cors = require('cors');
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
 
 app.get('/uni-stats', async (req, res) => {
     try {
@@ -15,7 +17,7 @@ app.get('/uni-stats', async (req, res) => {
         console.error(error);
     }
 })
-
+  
 app.listen(5001, () => {
     console.log('Listening on port 5001');
 })

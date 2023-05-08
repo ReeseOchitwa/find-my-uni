@@ -63,7 +63,7 @@ export default function BasicTable() {
               <TableCell>{data.populationData.Students}</TableCell>
               <TableCell>{data.populationData.Undergraduates} </TableCell>
               <TableCell>{data.populationData.Postgraduates}</TableCell>
-              <TableCell><BasicButtons id={index.toString()}/></TableCell>
+              <TableCell><BasicButtons disabled id={index.toString()}/></TableCell>
             </TableRow>
           ))}
         </TableBody>
