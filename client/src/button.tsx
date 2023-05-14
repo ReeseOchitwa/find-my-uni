@@ -14,31 +14,26 @@ const theme = createTheme({
   },
 });
 interface Props {
-  id: string;
+  id: number;
   disabled: boolean;
 }
 
 export default function BasicButtons(props: Props) {
-    let [isDisabled, setIsDisabled] = React.useState(false)
-    
+  const addToSaved = async () => {
+    const id = props.id + 1;
+    const response = await fetch(`http://localhost:8000/uni-stats-saved/${id}`, {
+      "method":"POST",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": ""
+    });
+  }
 
+  let [isDisabled, setIsDisabled] = React.useState(false)
   return (
     <ThemeProvider theme={theme}>
-      <Button variant="contained" onClick={() => setIsDisabled(true)} disabled={isDisabled}>Add</Button>
+      <Button variant="contained" onClick={() => {setIsDisabled(true);addToSaved();}} disabled={isDisabled}>Add</Button>
     </ThemeProvider>
   );
 }
-
-
-// const [buttonText, setButtonText] = useState<string>('Add');
-    // const [color, setColor]= useState<string>('primary')
-  
-    // function handleClick(): void {
-    //   if (buttonText === 'Add') {
-    //     setButtonText('Delete');
-    //     setColor('secondary');
-    //   } else {
-    //     setButtonText('Add');
-    //     setColor('primary')
-    //   }
-    // }

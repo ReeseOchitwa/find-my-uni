@@ -9,7 +9,7 @@
         "semver": "^7.5.0"
     },
     "scripts": {
-        "start": "nodemon server.js"
+        "start:backend": "nodemon server.js"
     },
     "devDependencies": {
         "source-map-loader": "^4.0.1"

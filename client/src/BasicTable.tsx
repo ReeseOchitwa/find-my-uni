@@ -9,6 +9,7 @@ import Paper from '@mui/material/Paper';
 import BasicButtons from './button';
 
 export default function BasicTable() {
+
   interface Data {
     universityName: string;
     geographicalData: {
@@ -25,12 +26,11 @@ export default function BasicTable() {
   
   const getData = async () => {
    try {
-    const response = await fetch ("http://localhost:5001/uni-stats");
+    const response = await fetch ("http://localhost:8000/uni-stats");
     const jsonData = await response.json();
-  
-    setData(jsonData.record);
+    setData(jsonData);
    } catch (error) {
-    console.error((error as Error).message)
+    console.error(error);
    }
   }
   
@@ -63,7 +63,7 @@ export default function BasicTable() {
               <TableCell>{data.populationData.Students}</TableCell>
               <TableCell>{data.populationData.Undergraduates} </TableCell>
               <TableCell>{data.populationData.Postgraduates}</TableCell>
-              <TableCell><BasicButtons disabled id={index.toString()}/></TableCell>
+              <TableCell><BasicButtons disabled id={index}/></TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -6,8 +6,8 @@ function Home() {
   return (
     <div className='hero-container'>
         <img src='./images/Uni.jpg' />
-        <h1 >APP NAME</h1>
-        <p>app description</p>
+        <h1>Uni Goose</h1>
+        <p>You're in luck! Browse here to find your dream University!</p>
         <hr className="black-bar"/>
         <section className="table-section">
             <h1 className="table-header">Canadian University Comparison Chart</h1>
