@@ -1,0 +1,15 @@
+.save-section{
+    background-color: rgb(255, 203, 217);
+    width:100%;
+    z-index: -1;
+    position: absolute;
+    height:100%;
+}
+.save-wrapper{
+    padding:10%;
+}
+
+.save-header{
+    font-size:30px;
+    color:white;
+}

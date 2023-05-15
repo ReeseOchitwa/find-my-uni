@@ -6,37 +6,27 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import BasicButtons from './button';
+import DeleteButtons from './DeleteButtons';
 
-export default function BasicTable() {
-
-  interface Data {
-    universityName: string;
-    geographicalData: {
-      location: string;
-    }
-    populationData: {
-      Students: number,
-      Undergraduates: number,
-      Postgraduates: number;
-    }
-  }
-  
-  const [data, setData] = useState<Data[]>([]);
+export default function SavedTable() {
+  const [data, setData] = useState([]);
   
   const getData = async () => {
    try {
-    const response = await fetch ("http://localhost:8000/uni-stats");
+    const response = await fetch ("http://localhost:8000/uni-stats-saved");
     const jsonData = await response.json();
     setData(jsonData);
    } catch (error) {
     console.error(error);
    }
   }
+
+
   
   useEffect(() => {
     getData();
-  }, [])
+  }, []);
+
   return (
     <TableContainer sx={{padding:3, maxWidth: 1000}} component={Paper}>
       <Table sx={{ minWidth: 650}} aria-label="simple table">
@@ -51,22 +41,22 @@ export default function BasicTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((data, index) => (
+          {data.map((data) => (
             <TableRow
-              key={data.universityName}
+              key={data.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {data.universityName}
+                {data.name}
               </TableCell>
-              <TableCell>{data.geographicalData.location} </TableCell>
-              <TableCell>{data.populationData.Students}</TableCell>
-              <TableCell>{data.populationData.Undergraduates} </TableCell>
-              <TableCell>{data.populationData.Postgraduates}</TableCell>
-              <TableCell><BasicButtons disabled id={index}/></TableCell>
+              <TableCell>{data.location} </TableCell>
+              <TableCell>{data.students}</TableCell>
+              <TableCell>{data.undergrads} </TableCell>
+              <TableCell>{data.postgrads}</TableCell>
+              <TableCell><DeleteButtons id={data.uni_id}/></TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-    </TableContainer>);
+    </TableContainer>)
 }

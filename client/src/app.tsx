@@ -1,6 +1,6 @@
-import Home from './home';
-import ButtonAppBar from './navBar';
-import Save from './save'
+import Home from './pages/Home';
+import ButtonAppBar from './components/ButtonAppBar';
+import Save from './pages/Save'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 import React from 'react';
 import { useEffect } from 'react';

@@ -6,27 +6,37 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import DeleteButtons from './delete';
+import BasicButtons from './BasicButtons';
 
-export default function SavedTable() {
-  const [data, setData] = useState([]);
+export default function BasicTable() {
+
+  interface Data {
+    universityName: string;
+    geographicalData: {
+      location: string;
+    }
+    populationData: {
+      Students: number,
+      Undergraduates: number,
+      Postgraduates: number;
+    }
+  }
+  
+  const [data, setData] = useState<Data[]>([]);
   
   const getData = async () => {
    try {
-    const response = await fetch ("http://localhost:8000/uni-stats-saved");
+    const response = await fetch ("http://localhost:8000/uni-stats");
     const jsonData = await response.json();
     setData(jsonData);
    } catch (error) {
     console.error(error);
    }
   }
-
-
   
   useEffect(() => {
     getData();
-  }, []);
-
+  }, [])
   return (
     <TableContainer sx={{padding:3, maxWidth: 1000}} component={Paper}>
       <Table sx={{ minWidth: 650}} aria-label="simple table">
@@ -43,20 +53,20 @@ export default function SavedTable() {
         <TableBody>
           {data.map((data, index) => (
             <TableRow
-              key={data.name}
+              key={data.universityName}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {data.name}
+                {data.universityName}
               </TableCell>
-              <TableCell>{data.location} </TableCell>
-              <TableCell>{data.students}</TableCell>
-              <TableCell>{data.undergrads} </TableCell>
-              <TableCell>{data.postgrads}</TableCell>
-              <TableCell><DeleteButtons id={data.uni_id}/></TableCell>
+              <TableCell>{data.geographicalData.location} </TableCell>
+              <TableCell>{data.populationData.Students}</TableCell>
+              <TableCell>{data.populationData.Undergraduates} </TableCell>
+              <TableCell>{data.populationData.Postgraduates}</TableCell>
+              <TableCell><BasicButtons disabled id={index}/></TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-    </TableContainer>)
+    </TableContainer>);
 }

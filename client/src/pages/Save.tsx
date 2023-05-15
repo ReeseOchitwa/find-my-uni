@@ -1,18 +1,16 @@
 import React from "react";
-import './save.css'
-import SavedTable from "./SavedTable";
+import './Save.css'
+import SavedTable from "../components/SavedTable";
 
-function Home() {
+export default function Save() {
   return (
     <div className='save-container'>
         <section className="save-section">
-            <h1 className="save-header">Saved Universities</h1>
             <div className="save-wrapper">
-                <SavedTable/>
+              <h1 className="save-header">Saved Universities</h1>
+              <SavedTable/>
              </div>
         </section>
     </div>
   );
 }
-
-export default Home;
