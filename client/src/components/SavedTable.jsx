@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -21,7 +22,9 @@ export default function SavedTable() {
    }
   }
 
-
+  const universityId = data.uni_id;
+  const modifiedUrl = `/save/${universityId}`;
+  const urlWithoutSave = modifiedUrl.replace('/save/', '/');
   
   useEffect(() => {
     getData();
@@ -41,13 +44,17 @@ export default function SavedTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((data) => (
+          {data.map((data) => {
+            const universityId = data.uni_id;
+            const modifiedUrl = `/save/${universityId}`;
+            const urlWithoutSave = modifiedUrl.replace('/save/', '/');
+            return(          
             <TableRow
               key={data.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {data.name}
+              <Link to={urlWithoutSave}> {data.name} </Link>
               </TableCell>
               <TableCell>{data.location} </TableCell>
               <TableCell>{data.students}</TableCell>
@@ -55,7 +62,7 @@ export default function SavedTable() {
               <TableCell>{data.postgrads}</TableCell>
               <TableCell><DeleteButtons id={data.uni_id}/></TableCell>
             </TableRow>
-          ))}
+          )})}
         </TableBody>
       </Table>
     </TableContainer>)

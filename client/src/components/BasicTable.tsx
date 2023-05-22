@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,6 +12,7 @@ import BasicButtons from './BasicButtons';
 export default function BasicTable() {
 
   interface Data {
+    _id : number;
     universityName: string;
     geographicalData: {
       location: string;
@@ -57,9 +59,9 @@ export default function BasicTable() {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {data.universityName}
+              <Link to={JSON.stringify(data._id)}>{data.universityName}</Link>
               </TableCell>
-              <TableCell>{data.geographicalData.location} </TableCell>
+              <TableCell>{data.geographicalData.location}</TableCell>
               <TableCell>{data.populationData.Students}</TableCell>
               <TableCell>{data.populationData.Undergraduates} </TableCell>
               <TableCell>{data.populationData.Postgraduates}</TableCell>
