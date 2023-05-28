@@ -17,7 +17,7 @@ export default function Home() {
             <div className="table-wrapper">
               <h1 className="table-header">Canadian University Comparison Chart</h1>
                 <BasicTable />
-             </div>\
+             </div>
         </section>
         </div>
     </div>

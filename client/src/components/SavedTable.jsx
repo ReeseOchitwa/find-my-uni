@@ -21,11 +21,6 @@ export default function SavedTable() {
     console.error(error);
    }
   }
-
-  const universityId = data.uni_id;
-  const modifiedUrl = `/save/${universityId}`;
-  const urlWithoutSave = modifiedUrl.replace('/save/', '/');
-  
   useEffect(() => {
     getData();
   }, []);

@@ -12,7 +12,7 @@ const body = {
     },
     {
       _id: 2,
-      universityName: "Queen's University",
+      universityName: "Queens University",
       geographicalData: { location: "99 University Ave, Kingston, ON K7L 3N6" },
       populationData: {
         Students: 31785,
